@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { places, Place } from '@/data/places';
 import { 
   MapPin, Utensils, Beer, Eye, ExternalLink, 
-  Compass, Share2, Copy, Printer, Check, Target, BookOpen
+  Compass, Share2, Copy, Printer, Check, Target, BookOpen, Crown
 } from 'lucide-react';
 import { createPortal } from 'react-dom';
 
@@ -13,14 +13,14 @@ import { createPortal } from 'react-dom';
 const Map = dynamic(() => import('@/components/Map'), { 
   ssr: false,
   loading: () => (
-    <div className="w-full h-full bg-slate-100 flex items-center justify-center text-slate-400 font-medium tracking-wide">
+    <div className="w-full h-full bg-slate-50 flex items-center justify-center text-slate-400 font-medium tracking-wide">
       Loading Map...
     </div>
   )
 });
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'1' | '2' | 'BestOf'>('1');
+  const [activeTab, setActiveTab] = useState<'Option1' | 'Option2' | 'TopChoices'>('Option1');
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
   const [showExportModal, setShowExportModal] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
@@ -59,7 +59,7 @@ export default function Home() {
     const lines = filteredPlaces.map(p => 
       `• ${p.time ? `[${p.time}] ` : ''}${p.name} (${p.category}) - ${p.description}`
     );
-    const text = `🇬🇧 Warissing in UK - ${activeTab === '1' ? 'Day 1' : activeTab === '2' ? 'Day 2' : 'Best Of'}\n\n${lines.join('\n')}\n\n📍 View Map: https://warissing-in-uk.vercel.app`;
+    const text = `🇬🇧 Warissing in UK - ${activeTab === 'Option1' ? 'Culture & Scenery' : activeTab === 'Option2' ? 'Drinks & Blast' : 'Top Choices'}\n\n${lines.join('\n')}\n\n📍 View Map: https://warissing-in-uk.vercel.app`;
     
     navigator.clipboard.writeText(text).then(() => {
       setCopySuccess(true);
@@ -99,48 +99,49 @@ export default function Home() {
         </div>
 
         {/* Tabs */}
-        <div className="flex border-b border-slate-100 bg-white px-4 pt-4 gap-4 shrink-0">
+        <div className="flex border-b border-slate-100 bg-white px-4 pt-4 gap-2 overflow-x-auto shrink-0">
           <button 
-            onClick={() => setActiveTab('1')}
-            className={`pb-3 px-2 text-sm font-semibold transition-all duration-300 border-b-2 ${activeTab === '1' 
+            onClick={() => setActiveTab('Option1')}
+            className={`pb-3 px-2 text-sm font-semibold transition-all duration-300 border-b-2 whitespace-nowrap ${activeTab === 'Option1' 
               ? 'text-cyan-600 border-cyan-500' 
               : 'text-slate-400 border-transparent hover:text-slate-600'
             }`}
           >
-            Day 1: Grand
+            Option 1: Culture
           </button>
           <button 
-            onClick={() => setActiveTab('2')}
-            className={`pb-3 px-2 text-sm font-semibold transition-all duration-300 border-b-2 ${activeTab === '2' 
+            onClick={() => setActiveTab('Option2')}
+            className={`pb-3 px-2 text-sm font-semibold transition-all duration-300 border-b-2 whitespace-nowrap ${activeTab === 'Option2' 
               ? 'text-emerald-600 border-emerald-500' 
               : 'text-slate-400 border-transparent hover:text-slate-600'
             }`}
           >
-            Day 2: Local
+            Option 2: Drinks
           </button>
           <button 
-            onClick={() => setActiveTab('BestOf')}
-            className={`pb-3 px-2 text-sm font-semibold transition-all duration-300 border-b-2 ${activeTab === 'BestOf' 
+            onClick={() => setActiveTab('TopChoices')}
+            className={`pb-3 px-2 text-sm font-semibold transition-all duration-300 border-b-2 whitespace-nowrap flex items-center gap-1 ${activeTab === 'TopChoices' 
               ? 'text-purple-600 border-purple-500' 
               : 'text-slate-400 border-transparent hover:text-slate-600'
             }`}
           >
-            Best Of
+            <Crown size={14} className={activeTab === 'TopChoices' ? 'text-purple-600' : 'text-slate-400'}/>
+            Top Choices
           </button>
         </div>
 
         {/* Content Area */}
         <div className="flex-1 overflow-y-auto p-6 bg-slate-50 space-y-6">
           <div className="mb-2">
-            <h2 className={`text-xl font-bold ${activeTab === '1' ? 'text-cyan-700' : activeTab === '2' ? 'text-emerald-700' : 'text-purple-700'}`}>
-              {activeTab === '1' && 'The Grand Entrance'}
-              {activeTab === '2' && "The Local's Vibe"}
-              {activeTab === 'BestOf' && 'Top Picks'}
+            <h2 className={`text-xl font-bold ${activeTab === 'Option1' ? 'text-cyan-700' : activeTab === 'Option2' ? 'text-emerald-700' : 'text-purple-700'}`}>
+              {activeTab === 'Option1' && 'Culture & Scenery'}
+              {activeTab === 'Option2' && 'Drinks & Blast'}
+              {activeTab === 'TopChoices' && 'The Top 5 Highlights'}
             </h2>
             <p className="text-sm text-slate-500 mt-1">
-              {activeTab === '1' && 'Skyline views, iconic dining, and high-end vibes.'}
-              {activeTab === '2' && 'Street food, hidden bars, and neighborhood grit.'}
-              {activeTab === 'BestOf' && 'Curated favorites by category.'}
+              {activeTab === 'Option1' && 'Walks in the park, scenery, and libraries. Relax and enjoy.'}
+              {activeTab === 'Option2' && 'Best places for drinks, parties, and a memorable night out.'}
+              {activeTab === 'TopChoices' && 'The absolute best, unique experiences Warissing must do.'}
             </p>
           </div>
 
@@ -198,7 +199,7 @@ export default function Home() {
         
         {/* Footer */}
         <div className="p-4 bg-white border-t border-slate-100 text-center text-xs text-slate-400 font-medium shrink-0">
-           Built for Waris • Manchester 2026
+           Built for Warissing • Manchester 2026
         </div>
       </div>
 

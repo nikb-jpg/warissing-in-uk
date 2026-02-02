@@ -16,7 +16,10 @@ interface MapProps {
 function MapUpdater({ center, zoom }: { center: [number, number]; zoom: number }) {
   const map = useMap();
   useEffect(() => {
-    map.flyTo(center, zoom);
+    map.flyTo(center, zoom, {
+      animate: true,
+      duration: 1.5
+    });
   }, [center, zoom, map]);
   return null;
 }
@@ -25,20 +28,20 @@ export default function Map({ places, selectedPlaceId, onSelectPlace }: MapProps
   const selectedPlace = places.find(p => p.id === selectedPlaceId);
   const center: [number, number] = selectedPlace 
     ? [selectedPlace.lat, selectedPlace.lng] 
-    : [53.4808, -2.2426]; // Default Manchester center
+    : [53.4808, -2.2426]; 
   
-  const zoom = selectedPlace ? 15 : 13;
+  const zoom = selectedPlace ? 16 : 14;
 
   return (
     <MapContainer 
       center={[53.4808, -2.2426]} 
-      zoom={13} 
+      zoom={14} 
       className="w-full h-full"
       scrollWheelZoom={true}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
       />
       
       <MapUpdater center={center} zoom={zoom} />
@@ -52,9 +55,9 @@ export default function Map({ places, selectedPlaceId, onSelectPlace }: MapProps
           }}
         >
           <Popup>
-            <div className="text-gray-900">
-              <h3 className="font-bold">{place.name}</h3>
-              <p className="text-sm">{place.category}</p>
+            <div className="text-gray-900 min-w-[150px]">
+              <h3 className="font-bold text-sm mb-1">{place.name}</h3>
+              <p className="text-xs text-gray-600">{place.category}</p>
             </div>
           </Popup>
         </Marker>
