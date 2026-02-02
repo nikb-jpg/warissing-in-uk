@@ -44,7 +44,7 @@ export const places: Place[] = [
     lat: 53.4767,
     lng: -2.2553,
     time: '3:00 PM',
-    image: 'https://images.unsplash.com/photo-1580491321727-88f61536b567?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    image: '/images/science-industry.png'
   },
   {
     id: '20-stories',
@@ -55,7 +55,7 @@ export const places: Place[] = [
     lat: 53.4816,
     lng: -2.2505,
     time: '5:00 PM',
-    image: 'https://images.unsplash.com/photo-1519671482502-9759160d2303?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    image: '/images/20-stories.png'
   },
   {
     id: 'king-st-townhouse',
@@ -187,7 +187,7 @@ export const places: Place[] = [
     day: 'TopChoices',
     lat: 53.4800,
     lng: -2.2475,
-    image: 'https://images.unsplash.com/photo-1514525253440-b393452e2729?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    image: '/images/blues-kitchen.png'
   },
   {
     id: 'junkyard-golf',
@@ -197,6 +197,6 @@ export const places: Place[] = [
     day: 'TopChoices',
     lat: 53.4745,
     lng: -2.2458,
-    image: 'https://images.unsplash.com/photo-1595188998739-122cb4342b58?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    image: '/images/junkyard-golf.png'
   }
 ];

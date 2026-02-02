@@ -86,7 +86,7 @@ export default function Home() {
             <div>
                <h2 className="text-lg font-medium text-cyan-100 mb-1 tracking-wide">Hello Island boy! 🏝️</h2>
                <h1 className="text-3xl font-extrabold tracking-tight mb-2">Warissing in UK</h1>
-               <p className="text-cyan-50 text-sm opacity-90">Your curated Manchester pocket guide.</p>
+               <p className="text-cyan-50 text-sm opacity-90">Enjoyyyy</p>
             </div>
             <button 
               onClick={() => setShowExportModal(true)}
