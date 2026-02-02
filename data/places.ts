@@ -22,7 +22,7 @@ export const places: Place[] = [
     lat: 53.4801,
     lng: -2.2486,
     time: '11:00 AM',
-    image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    image: '/images/john-rylands.png'
   },
   {
     id: 'castlefield-viaduct',
@@ -77,7 +77,7 @@ export const places: Place[] = [
     lat: 53.4835,
     lng: -2.2343,
     time: '8:00 PM',
-    image: 'https://images.unsplash.com/photo-1572905396590-344426543b35?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    image: '/images/nq-stroll.png'
   },
 
   // Option 2: Drinks & Blast (Formerly Day 2)
@@ -101,7 +101,7 @@ export const places: Place[] = [
     lat: 53.4812,
     lng: -2.2452,
     time: '3:00 PM',
-    image: 'https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    image: '/images/flight-club.png'
   },
   {
     id: 'tattu',
@@ -134,7 +134,7 @@ export const places: Place[] = [
     lat: 53.4814,
     lng: -2.2372,
     time: '10:00 PM',
-    image: 'https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    image: '/images/washhouse.png'
   },
   {
     id: 'rudys',
@@ -157,7 +157,7 @@ export const places: Place[] = [
     day: 'TopChoices',
     lat: 53.4764,
     lng: -2.2274,
-    image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    image: '/images/freight-island.png'
   },
   {
     id: 'dishoom',
@@ -177,7 +177,7 @@ export const places: Place[] = [
     day: 'TopChoices',
     lat: 53.4771,
     lng: -2.2571,
-    image: 'https://images.unsplash.com/photo-1505521216430-8b73b2066efb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    image: '/images/chaos-karts.png'
   },
   {
     id: 'blues-kitchen',
