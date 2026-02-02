@@ -1,18 +1,29 @@
 export interface Place {
   id: string;
   name: string;
-  category: 'View' | 'Food' | 'Drink' | 'Walk' | 'Experience';
+  category: 'View' | 'Food' | 'Drink' | 'Walk' | 'Experience' | 'Culture';
   description: string;
   day: '1' | '2' | 'BestOf';
   lat: number;
   lng: number;
   time?: string;
   image: string;
-  addressId?: string; // For better Google Maps linking if needed, otherwise name works
+  addressId?: string;
 }
 
 export const places: Place[] = [
   // Day 1: Grand Entrance
+  {
+    id: 'john-rylands',
+    name: 'John Rylands Library',
+    category: 'Culture',
+    description: 'A neo-Gothic masterpiece that looks more like a cathedral. The Reading Room is pure Hogwarts vibes.',
+    day: '1',
+    lat: 53.4801,
+    lng: -2.2486,
+    time: '3:00 PM',
+    image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
   {
     id: '20-stories',
     name: '20 Stories',
@@ -21,7 +32,7 @@ export const places: Place[] = [
     day: '1',
     lat: 53.4816,
     lng: -2.2505,
-    time: '4:00 PM',
+    time: '5:00 PM',
     image: 'https://images.unsplash.com/photo-1519671482502-9759160d2303?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
@@ -49,6 +60,17 @@ export const places: Place[] = [
 
   // Day 2: Local's Vibe
   {
+    id: 'castlefield-viaduct',
+    name: 'Castlefield Viaduct',
+    category: 'Walk',
+    description: "Manchester's 'High Line'. An elevated sky park built on a Victorian railway viaduct.",
+    day: '2',
+    lat: 53.4752,
+    lng: -2.2546,
+    time: '11:00 AM',
+    image: 'https://images.unsplash.com/photo-1620766165457-a8025baa82e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
     id: 'mackie-mayor',
     name: 'Mackie Mayor',
     category: 'Food',
@@ -56,7 +78,7 @@ export const places: Place[] = [
     day: '2',
     lat: 53.4851,
     lng: -2.2355,
-    time: '12:00 PM',
+    time: '1:00 PM',
     image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
@@ -67,8 +89,19 @@ export const places: Place[] = [
     day: '2',
     lat: 53.4835,
     lng: -2.2343,
-    time: '2:00 PM',
+    time: '2:30 PM',
     image: 'https://images.unsplash.com/photo-1499242502266-9c6bc7636e05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'flight-club',
+    name: 'Flight Club',
+    category: 'Experience',
+    description: 'Social darts reinvented. High energy, great cocktails, and a beautiful fairground decor.',
+    day: '2',
+    lat: 53.4812,
+    lng: -2.2452,
+    time: '5:00 PM',
+    image: 'https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'rudys',
@@ -78,7 +111,7 @@ export const places: Place[] = [
     day: '2',
     lat: 53.4847,
     lng: -2.2287,
-    time: '7:00 PM',
+    time: '7:30 PM',
     image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
@@ -123,5 +156,15 @@ export const places: Place[] = [
     lat: 53.4809,
     lng: -2.2450,
     image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'science-industry',
+    name: 'Science & Industry Museum',
+    category: 'Experience',
+    description: 'Explore the industrial heritage in the worlds first industrial city.',
+    day: 'BestOf',
+    lat: 53.4767,
+    lng: -2.2553,
+    image: 'https://images.unsplash.com/photo-1580491321727-88f61536b567?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   }
 ];
